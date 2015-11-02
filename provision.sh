@@ -49,7 +49,7 @@ EOF
 systemctl restart mysql
 
 #install apache2
-apt-get install -y apache2 apache2.2-common apache2-doc apache2-utils ssl-cert imagemagick
+apt-get install -y apache2 apache2-doc apache2-utils ssl-cert imagemagick
 
 a2enmod ssl rewrite headers proxy proxy_http proxy_balancer lbmethod_byrequests
 
@@ -63,5 +63,10 @@ apt-get install -y build-essential libssl-dev libcurl4-openssl-dev libxml2-dev l
  adduser --disabled-login -gecos "" adm001di
  echo 'adm001di ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-sudo su - adm001bi < /vagrant/provision2.sh
+sudo su - adm001bi -c "/vagrant/provision2.sh"
+
+#just making sure everything is up to date!
+debconf-set-selections <<< 'libc6 libraries/restart-without-asking boolean true'
+export DEBIAN_FRONTEND=noninteractive
+apt-get update &&  apt-get -y upgrade && apt-get -y dist-upgrade
 
