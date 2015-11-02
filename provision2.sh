@@ -50,4 +50,4 @@ sudo service apache2 reload
 
  #Start Diaspora
  #./script/server - this is now provided by a run init script
- sudo su - < "cp /vagrant/diaspora /etc/init.d/ && chmod +x /etc/init.d/diaspora && update-rc.d diaspora defaults && service diaspora start"
+ sudo su - root -c "cp /vagrant/diaspora /etc/init.d/ && chmod +x /etc/init.d/diaspora && update-rc.d diaspora defaults && service diaspora start"
