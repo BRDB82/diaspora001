@@ -15,7 +15,7 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Diaspora application server"
 NAME=diaspora
-DIASPORA_HOME="/home/adm001bi/diaspora"
+DIASPORA_HOME="/home/adm001di/diaspora"
 
 # if you use mySQL:
 STARTSCRIPT=./script/server
@@ -24,7 +24,7 @@ STARTSCRIPT=./script/server
 
 LOGFILE=$DIASPORA_HOME/log/startscript.log
 SCRIPTNAME=$0
-USER=adm001bi
+USER=adm001di
 STARTUP_TIMEOUT=100
 
 . /lib/init/vars.sh
@@ -55,7 +55,7 @@ do_start()
         return 1
     fi
 
-    if ! su -l $USER -c "cd $DIASPORA_HOME; $STARTSCRIPT >> $LOGFILE 2>&1 &"; then
+    if ! su -l $USER -c "cd $DIASPORA_HOME;gem update bundle; $STARTSCRIPT >> $LOGFILE 2>&1 &"; then
         log_failure_msg "Could not run start script"
         return 2
     fi
@@ -164,5 +164,3 @@ case "$1" in
     exit 3
     ;;
 esac
-
-:
