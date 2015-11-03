@@ -71,3 +71,12 @@ debconf-set-selections <<< 'libc6 libraries/restart-without-asking boolean true'
 export DEBIAN_FRONTEND=noninteractive
 apt-get update &&  apt-get -y upgrade && apt-get -y dist-upgrade
 
+cp /vagrant/diaspora.conf /etc/apache2/sites-available/test.local.conf
+a2dissite 000-default.conf
+a2ensite test.local.conf
+
+service apache2 reload
+
+#Start Diaspora
+#./script/server - this is now provided by /etc/init.d/diaspora
+cp /vagrant/diaspora /etc/init.d/ && chmod +x /etc/init.d/diaspora && update-rc.d diaspora defaults && service diaspora start
