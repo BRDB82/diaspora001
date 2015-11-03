@@ -33,8 +33,10 @@ sudo ln /etc/ssl/private/test.local.crt /etc/pki/tls/certs/diaspora-bundle.crt
 sudo ln /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
 
 #bundle
-cd ~/diaspora && rvm use --default 2.1
-gem install bundler && gem update bundler
+cd ~/diaspora
+rvm use --default 2.1
+gem install bundler
+gem update bundler
 RAILS_ENV=production ~/diaspora/bin/bundle install --without test development
 
 #Database setup
