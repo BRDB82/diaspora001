@@ -63,6 +63,7 @@ apt-get install -y build-essential libssl-dev libcurl4-openssl-dev libxml2-dev l
  adduser --disabled-login -gecos "" adm001di
  echo 'adm001di ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
+chmod 777 /vagrant/provision.sh
 sudo su - adm001di -c "/vagrant/provision2.sh"
 
 #just making sure everything is up to date!
