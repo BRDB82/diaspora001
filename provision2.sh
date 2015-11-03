@@ -42,13 +42,3 @@ RAILS_ENV=production ~/diaspora/bin/rake db:create db:schema:load
 
 #Precompile assets
 RAILS_ENV=production ~/diaspora/bin/rake assets:precompile
-
-sudo cp /vagrant/diaspora.conf /etc/apache2/sites-available/test.local.conf
-sudo a2dissite 00-default.conf
-sudo a2ensite test.local.conf
-
-sudo service apache2 reload
-
- #Start Diaspora
- #./script/server - this is now provided by a run init script
- sudo su - root -c "cp /vagrant/diaspora /etc/init.d/ && chmod +x /etc/init.d/diaspora && update-rc.d diaspora defaults && service diaspora start"
