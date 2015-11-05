@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+#install certificates
+cp /vagrant/test.local.crt /etc/ssl/private
+cp /vagrant/test.local.key /etc/ssl/private
+chmod 777 /etc/ssl/private/test.local.crt
+chmod 777 /etc/ssl/certs/ca-certificates.crt
+mkdir -p /etc/pki/tls/certs
+ln /etc/ssl/private/test.local.crt /etc/pki/tls/certs/diaspora-bundle.crt
+ln /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
+
 #address domainname
 domainname test.local
 
