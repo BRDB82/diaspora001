@@ -24,14 +24,6 @@ git clone -b master https://github.com/diaspora/diaspora.git
  cp /vagrant/database.yml ~/diaspora/config
  cp /vagrant/diaspora.yml ~/diaspora/config
 
-sudo cp /vagrant/test.local.crt /etc/ssl/private
-sudo cp /vagrant/test.local.key /etc/ssl/private
-sudo chmod 777 /etc/ssl/private/test.local.crt
-sudo chmod 777 /etc/ssl/certs/ca-certificates.crt
-sudo mkdir -p /etc/pki/tls/certs
-sudo ln /etc/ssl/private/test.local.crt /etc/pki/tls/certs/diaspora-bundle.crt
-sudo ln /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
-
 #bundle
 cd ~/diaspora
 rvm use --default 2.1
