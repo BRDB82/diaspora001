@@ -55,7 +55,7 @@ do_start()
         return 1
     fi
 
-    if ! su -u $USER bash -c 'cd $DIASPORA_HOME;gem update bundle; $STARTSCRIPT >> $LOGFILE 2>&1 &'; then
+    if ! su -u $USER bash -c 'cd $DIASPORA_HOME; gem update bundler; $STARTSCRIPT >> $LOGFILE 2>&1 &'; then
         log_failure_msg "Could not run start script"
         return 2
     fi
