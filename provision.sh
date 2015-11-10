@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -x
-
 #install certificates
 cp /vagrant/test.local.crt /etc/ssl/private
 cp /vagrant/test.local.key /etc/ssl/private
