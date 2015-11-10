@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #install certificates
 cp /vagrant/test.local.crt /etc/ssl/private
