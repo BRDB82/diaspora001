@@ -88,7 +88,7 @@ a2ensite test.local.conf
 service apache2 reload
 
 #Start Diaspora
-cp diaspora.services /etc/systemd/system && systemctl daemon-reload
+cp diaspora.service /etc/systemd/system && systemctl daemon-reload
 cp /vagrant/diaspora /opt && chmod +x /opt/diaspora && chown adm001di:adm001di /opt/diaspora
 
 systemctl start diaspora
