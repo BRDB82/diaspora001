@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
+set -x
 
 #install certificates
 cp /vagrant/test.local.crt /etc/ssl/private
@@ -73,7 +75,8 @@ apt-get install -y build-essential libssl-dev libcurl4-openssl-dev libxml2-dev l
  echo 'adm001di ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 chmod 777 /vagrant/provision.sh
-sudo -u adm001di bash -c "/vagrant/provision2.sh"
+sudo -u adm001di -c "/vagrant/provision2.sh"
+
 
 #just making sure everything is up to date!
 debconf-set-selections <<< 'libc6 libraries/restart-without-asking boolean true'
@@ -87,5 +90,7 @@ a2ensite test.local.conf
 service apache2 reload
 
 #Start Diaspora
-#./script/server - this is now provided by /etc/init.d/diaspora
-cp /vagrant/diaspora /etc/init.d/ && chmod +x /etc/init.d/diaspora && update-rc.d diaspora defaults && service diaspora start
+cp diaspora.services /etc/systemd/system && systemctl daemon-reload
+cp /vagrant/diaspora /opt && chmod +x /opt/diaspora && chown adm001di:adm001di /opt/diaspora
+
+systemctl start diaspora

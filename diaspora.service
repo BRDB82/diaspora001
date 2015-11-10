@@ -1,0 +1,10 @@
+[Unit]
+Descript=Diaspora Server
+
+[Service]
+Type=simple
+ExecStart=/opt/diaspora
+WorkingDirectory="~"
+User="adm001di"
+
+

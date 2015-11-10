@@ -20,9 +20,9 @@ cd ~
 git clone -b master https://github.com/diaspora/diaspora.git
 
 #configuration
- #copy files
- cp /vagrant/database.yml ~/diaspora/config
- cp /vagrant/diaspora.yml ~/diaspora/config
+#copy files
+cp /vagrant/database.yml ~/diaspora/config
+cp /vagrant/diaspora.yml ~/diaspora/config
 
 #bundle
 cd ~/diaspora
