@@ -4,7 +4,7 @@ Descript=Diaspora Server
 [Service]
 Type=simple
 ExecStart=/opt/diaspora
-WorkingDirectory="~"
+WorkingDirectory="/home/adm001di"
 User="adm001di"
 
 
