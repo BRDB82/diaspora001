@@ -3,8 +3,9 @@ Descript=Diaspora Server
 
 [Service]
 Type=simple
-ExecStart=/opt/diaspora
 WorkingDirectory="/home/adm001di"
 User="adm001di"
+ExecStart=/bin/bash /opt/diaspora
+
 
 
