@@ -3,9 +3,9 @@ Descript=Diaspora Server
 
 [Service]
 Type=simple
-WorkingDirectory="/home/adm001di"
+WorkingDirectory=/home/adm001di
 User="adm001di"
 ExecStart=/bin/bash /opt/diaspora
 
-
-
+[Install]
+WantedBy=multi-user.target
