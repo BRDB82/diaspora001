@@ -3,9 +3,11 @@ Description=Diaspora Server
 
 [Service]
 Type=simple
+Environment=PATH=/home/adm001di/.rvm/gems/ruby-2.1.5/bin:/home/adm001di/.rvm/gems/ruby-2.1.5@global/bin:/home/adm001di/.rvm/rubies/ruby-2.1.5/bin:/usr/local/bin:/usr/bin:/home/adm001di/.rvm/bin
 WorkingDirectory=/home/adm001di/diaspora
 User=adm001di
 ExecStart=/opt/diaspora
 
 [Install]
 WantedBy=multi-user.target
+
