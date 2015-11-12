@@ -3,7 +3,7 @@ Descript=Diaspora Server
 
 [Service]
 Type=simple
-WorkingDirectory=/home/adm001di
+WorkingDirectory=/home/adm001di/diaspora
 User=adm001di
 ExecStart=/opt/diaspora
 
