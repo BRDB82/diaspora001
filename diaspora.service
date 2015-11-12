@@ -1,5 +1,5 @@
 [Unit]
-Descript=Diaspora Server
+Description=Diaspora Server
 
 [Service]
 Type=simple
