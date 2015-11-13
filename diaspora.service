@@ -1,13 +1,16 @@
 [Unit]
-Description=Diaspora Server
+Description=Diaspora socail network (application server)
+Wants=redis-server.service
+Wants=mysql.service
 
 [Service]
-Type=simple
-Environment=PATH=/home/adm001di/.rvm/gems/ruby-2.1.5/bin:/home/adm001di/.rvm/gems/ruby-2.1.5@global/bin:/home/adm001di/.rvm/rubies/ruby-2.1.5/bin:/usr/local/bin:/usr/bin:/home/adm001di/.rvm/bin
-WorkingDirectory=/home/adm001di/diaspora
 User=adm001di
-ExecStart=/opt/diaspora
+WorkingDirectory=/home/adm001di/diaspora
+Environment=RAILS_ENV=production DB=mysql
+ExecStart=/bin/bash -lc "true; /opt/./diaspora"
+CPUAccounting=true
+MemoryAccounting=true
+BlockIOAccounting=true
 
 [Install]
 WantedBy=multi-user.target
-
